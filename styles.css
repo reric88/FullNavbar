@@ -1,0 +1,120 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: radial-gradient(
+    200vw 100vh at 50vw 50vh,
+    #fc7c4ac0,
+    #e74100
+  );
+  background-attachment: fixed;
+  display: grid;
+  place-items: center;
+}
+
+.nav-container {
+  width: 50%;
+  height: 200px;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  z-index: 10;
+  border-radius: 0 0 10px 10px;
+}
+
+.navbar {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  background-color: #000;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  z-index: 1;
+}
+
+.navbar-link {
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 15px;
+  position: relative;
+  transition: bottom 200ms, background-color 600ms 200ms;
+}
+
+.navbar-link:first-child {
+  pointer-events: none;
+  /* border-radius: 0 0 0 8px; */
+}
+
+.navbar-link:last-child {
+  pointer-events: none;
+  /* border-radius: 0 0 8px 0; */
+}
+
+.change.navbar-link {
+  background-color: #e74100;
+  transition: background-color 100ms;
+  pointer-events: none;
+}
+
+.navbar-link::before {
+  content: "";
+  width: 99%;
+  height: 128px;
+  background-color: #e74100;
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  border-radius: 10px;
+  transition: bottom 350ms 250ms, transform 200ms;
+  z-index: -1;
+}
+
+.navbar .home {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background-color: purple;
+  z-index: 2;
+  top: 10%;
+}
+
+.change.navbar-link::before {
+  height: 200px;
+  width: 100%;
+  bottom: 0%;
+  background-color: #e74100;
+  left: 0;
+  transform: scale(13, 12);
+  transition: bottom 350ms 250ms, transform 500ms 200ms;
+  z-index: -1;
+}
+
+.navbar-link i {
+  margin-bottom: 0;
+  font-size: 24px;
+  color: #fff;
+  transition: margin-bottom 200ms, color 200ms, font-size 300ms;
+}
+
+.navbar-link i:hover {
+  font-size: 26px;
+  transition: font-size 100ms;
+}
+
+.change.navbar-link i {
+  margin-bottom: 25%;
+  color: #111;
+  font-size: 36px;
+  transition: margin-bottom 200ms, color 200ms, font-size 300ms;
+}
